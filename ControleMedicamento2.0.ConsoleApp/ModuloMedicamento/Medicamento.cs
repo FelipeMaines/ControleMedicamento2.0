@@ -1,6 +1,7 @@
 ﻿using ControleMedicamento2._0.ConsoleApp.Compartilhado;
 using ControleMedicamento2._0.ConsoleApp.ModuloFornecedor;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,5 +37,25 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloMedicamento
             quantidadeMinima = medicamento.quantidadeMinima;
             fornecedor = medicamento.fornecedor;
         }
+
+        public override ArrayList Verificacao()
+        {
+            ArrayList erros = new ArrayList();
+
+            if (string.IsNullOrEmpty(descricao))
+                erros.Add("O campo descricao nao foi preenchido corretamente!");
+
+            if(string.IsNullOrEmpty(nome))
+                erros.Add("O campo nome nao foi preenchido corretamente!");
+
+            if (quantidadeEstoque <= 0)
+                erros.Add("Quantidade em estoque menor que zero!");
+
+            if (fornecedor == null)
+                erros.Add("O campo fornecedor eh obrigatorio!");
+
+            return erros;
+        }
+
     }
 }

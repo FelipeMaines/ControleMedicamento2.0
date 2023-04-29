@@ -14,14 +14,14 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloMedicamento
     {
         public TelaFornecedor telaFornecedor;
         public RepositorioFornecedor repositorioFornecedor;
-
+        public string[] camposRemedio = { "id", "nome", "descricao", "quantidade", "quantidadeMinima" };
         public TelaMedicamento(RepositorioBase repositorio, RepositorioBase repositorioFornecedor, TelaFornecedor telaFornecedor) : base(repositorio)
         {
             this.repositorioFornecedor = (RepositorioFornecedor)repositorioFornecedor;
             this.telaFornecedor = telaFornecedor;
             this.nomeEntidade = "Medicamento";
             sufixo = "s";
-        }
+    }
 
         public override string ApresentarMenu()
         {

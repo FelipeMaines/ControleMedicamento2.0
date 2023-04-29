@@ -51,6 +51,8 @@ namespace ControleMedicamento2._0.ConsoleApp
             EntidadeBase entidade = BuscarPorId(id);
 
             listaRegistros.Remove(entidade);
+
+            contadorId--;
         }
     }
 }

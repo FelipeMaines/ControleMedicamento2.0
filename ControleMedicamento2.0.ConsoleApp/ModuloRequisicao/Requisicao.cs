@@ -1,8 +1,9 @@
 ﻿using ControleMedicamento2._0.ConsoleApp.Compartilhado;
+using ControleMedicamento2._0.ConsoleApp.ModuloFornecedor;
 using ControleMedicamento2._0.ConsoleApp.ModuloFuncionario;
 using ControleMedicamento2._0.ConsoleApp.ModuloMedicamento;
 using ControleMedicamento2._0.ConsoleApp.ModuloPaciente;
-
+using System.Collections;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloRequisicao
 {
@@ -31,6 +32,25 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloRequisicao
             this.paciente = requisicaoAtualizada.paciente;
             this.quantidadePegada = requisicaoAtualizada.quantidadePegada;
             this.data = requisicaoAtualizada.data;
+        }
+
+        public override ArrayList Verificacao()
+        {
+            ArrayList erros = new ArrayList();
+
+            if (paciente == null)
+                erros.Add("O campo *paciente eh obrigatorio*");
+
+            if (medicamento == null)
+                erros.Add("O campo *Medicamento* eh obrigatorio!");
+
+            if (funcionario == null)
+                erros.Add("O campo *Funcionario* eh obrigatorio!");
+
+            if (quantidadePegada == null || quantidadePegada <= 0)
+                erros.Add("O campo *Quantidade de medicamento nao foi preenchido corretamente*");
+
+            return erros;
         }
     }
 }

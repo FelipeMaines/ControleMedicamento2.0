@@ -27,6 +27,15 @@ namespace ControleMedicamento2._0.ConsoleApp
 
             EntidadeBase entidade = ObterRegistro();
 
+            if(VerificarErros(entidade))
+            {
+                Mensagem("Algum campo nao foi preenchido corretamente!", ConsoleColor.Red);
+                Console.ReadLine();
+                CriarInserirEntidade();
+
+                return;
+            }    
+
             repositorioBase.Inserir(entidade);
 
             Mensagem("Entidade Criada com sucesso!", ConsoleColor.Green);
@@ -103,6 +112,23 @@ namespace ControleMedicamento2._0.ConsoleApp
             return opcao;
         }
 
+        protected bool VerificarErros(EntidadeBase entidade)
+        {
+            bool erro = false;
 
+            ArrayList erros = entidade.Verificacao();
+
+            if (erros.Count > 0)
+            {
+                erro = true;
+
+                foreach(string err in erros)
+                {
+                    Mensagem(err, ConsoleColor.Red);
+                }
+            }
+
+            return erro;
+        }
     }
 }

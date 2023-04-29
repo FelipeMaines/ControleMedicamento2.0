@@ -85,7 +85,6 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloRequisicao
                 return null;
             }
 
-
             DateTime data = DateTime.Today;
 
             return new Requisicao(funcionario, medicamento, paciente, quantidadePegada, data);

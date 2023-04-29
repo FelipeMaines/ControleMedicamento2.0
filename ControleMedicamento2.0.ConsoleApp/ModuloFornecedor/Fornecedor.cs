@@ -1,5 +1,6 @@
 ﻿using ControleMedicamento2._0.ConsoleApp.Compartilhado;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,23 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloFornecedor
             this.telefone = parametroAtualizado.telefone;
             this.cidade = parametroAtualizado.cidade;
 
+        }
+
+        public override ArrayList Verificacao()
+        {
+            ArrayList erros = new ArrayList();
+
+            if(string.IsNullOrEmpty(nome.Trim()))
+            {
+                erros.Add("Campo nome nao foi preenchido corretamente");
+            }
+
+            if (string.IsNullOrEmpty(medicamento.Trim()))
+            {
+                erros.Add("Campo medicamente nao foi preenchido corretamente");
+            }
+
+            return erros;
         }
     }
 }

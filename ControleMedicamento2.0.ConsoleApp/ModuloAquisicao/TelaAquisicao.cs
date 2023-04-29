@@ -84,5 +84,7 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloAquisicao
 
             return new Aquisicao(fornecedor, medicamento, funcionario, data, quantiadeAdicionar);
         }
+
+        
     }
 }

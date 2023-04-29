@@ -1,5 +1,7 @@
 ﻿using ControleMedicamento2._0.ConsoleApp.Compartilhado;
+using ControleMedicamento2._0.ConsoleApp.ModuloFornecedor;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +33,25 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloPaciente
             sus = paciente.sus;
             cpf = paciente.cpf;
             telefone = paciente.telefone;
+        }
+
+        public override ArrayList Verificacao()
+        {
+            ArrayList erros = new ArrayList();
+
+            if (string.IsNullOrEmpty(cpf))
+                erros.Add("O campo cpf nao foi preenchido corretamente!");
+
+            if (string.IsNullOrEmpty(nome))
+                erros.Add("O campo nome nao foi preenchido corretamente!");
+
+            if (string.IsNullOrEmpty(sus))
+                erros.Add("O campo sus nao foi preenchido corretamente!");
+
+            if (string.IsNullOrEmpty(telefone))
+                erros.Add("O campo telefone nao foi preenchido corretamente!");
+
+            return erros;
         }
     }
 }

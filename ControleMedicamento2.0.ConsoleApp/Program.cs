@@ -38,9 +38,9 @@ namespace ControleMedicamento2._0.ConsoleApp
                 {
                     case "1":
                         {
-                            string submenu = telaFornecedor.ApresentarMenu();
+                            string submenu = "";
 
-                            while (submenu != "s" && submenu != "0")
+                            do
                             {
                                 submenu = telaFornecedor.ApresentarMenu();
 
@@ -71,45 +71,39 @@ namespace ControleMedicamento2._0.ConsoleApp
                                     telaFornecedor.ExcluirEntidade();
                                     Console.ReadLine();
                                 }
-                            }
+                            } while (submenu != "s" && submenu != "0");
 
                             break;
                         }
 
                     case "2":
                         {
-                            string submenu2 = telaFuncionario.ApresentarMenu();
+                            string submenu2 = " ";
 
-                            while (submenu2 != "s" && submenu2 != "0")
+                            do
                             {
                                 submenu2 = telaFuncionario.ApresentarMenu();
 
                                 if (submenu2 == "1")
                                 {
-                                    Console.Clear();
                                     telaFuncionario.CriarInserirEntidade();
                                 }
 
                                 else if (submenu2 == "2")
                                 {
-                                    Console.Clear();
                                     telaFuncionario.MostrarTabela();
-                                    Console.ReadLine();
-                                    Console.Clear();
                                 }
 
                                 else if (submenu2 == "3")
                                 {
-                                    Console.Clear();
                                     telaFuncionario.EditarEntidade();
                                 }
 
                                 else if (submenu2 == "4")
                                 {
-                                    Console.Clear();
                                     telaFuncionario.ExcluirEntidade();
                                 }
-                            }
+                            } while (submenu2 != "s" && submenu2 != "0");
 
                             break;
                         }
@@ -125,26 +119,21 @@ namespace ControleMedicamento2._0.ConsoleApp
                                 if (submenu3 == "1")
                                 {
                                     telaPaciente.CriarInserirEntidade();
-                                    Console.Clear();
                                 }
 
                                 else if (submenu3 == "2")
                                 {
                                     telaPaciente.MostrarTabela();
-                                    Console.ReadLine();
-                                    Console.Clear();
                                 }
 
                                 else if (submenu3 == "3")
                                 {
                                     telaPaciente.EditarEntidade();
-                                    Console.Clear();
                                 }
 
                                 else if (submenu3 == "4")
                                 {
                                     telaPaciente.ExcluirEntidade();
-                                    Console.Clear();
                                 }
 
                             } while (submenu3 != "0" && submenu3 != "s");
@@ -162,38 +151,31 @@ namespace ControleMedicamento2._0.ConsoleApp
                                 if (submenu4 == "1")
                                 {
                                     telaMedicamento.CriarInserirEntidade();
-                                    Console.Clear();
                                 }
 
                                 else if (submenu4 == "2")
                                 {
                                     telaMedicamento.MostrarTabela();
-                                    Console.ReadLine();
-                                    Console.Clear();
                                 }
 
                                 else if (submenu4 == "3")
                                 {
                                     telaMedicamento.EditarEntidade();
-                                    Console.Clear();
                                 }
 
                                 else if (submenu4 == "4")
                                 {
                                     telaMedicamento.ExcluirEntidade();
-                                    Console.Clear();
                                 }
 
                                 else if (submenu4 == "5")
                                 {
                                     Console.WriteLine("Producao");
-                                    Console.Clear();
                                 }
 
                                 else if (submenu4 == "6")
                                 {
                                     Console.WriteLine("Producao");
-                                    Console.Clear();
                                 }
 
                             } while (submenu4 != "0" && submenu4 != "s");
@@ -210,26 +192,21 @@ namespace ControleMedicamento2._0.ConsoleApp
                             if (submenu5 == "1")
                             {
                                 telaAquisicao.CriarInserirEntidade();
-                                Console.Clear();
                             }
 
                             else if (submenu5 == "2")
                             {
                                 telaAquisicao.MostrarTabela();
-                                Console.ReadLine();
-                                Console.Clear();
                             }
 
                             else if (submenu5 == "3")
                             {
                                 telaAquisicao.EditarEntidade();
-                                Console.Clear();
                             }
 
                             else if (submenu5 == "4")
                             {
                                 telaAquisicao.ExcluirEntidade();
-                                Console.Clear();
                             }
 
                         } while (submenu5 != "0" && submenu5 != "s");
@@ -246,26 +223,21 @@ namespace ControleMedicamento2._0.ConsoleApp
                             if (submenu6 == "1")
                             {
                                 telaRequisicao.CriarInserirEntidade();
-                                Console.Clear();
                             }
 
                             else if (submenu6 == "2")
                             {
                                 telaRequisicao.MostrarTabela();
-                                Console.ReadLine();
-                                Console.Clear();
                             }
 
                             else if (submenu6 == "3")
                             {
                                 telaRequisicao.EditarEntidade();
-                                Console.Clear();
                             }
 
                             else if (submenu6 == "4")
                             {
                                 telaRequisicao.ExcluirEntidade();
-                                Console.Clear();
                             }
 
                         } while (submenu6 != "0" && submenu6 != "s");

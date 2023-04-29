@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace ControleMedicamento2._0.ConsoleApp.Compartilhado
 
 
         public abstract void AtualizarInformacoes(EntidadeBase entidadeAtualizada);
+
+        public abstract ArrayList Verificacao();
         
     }
 }
