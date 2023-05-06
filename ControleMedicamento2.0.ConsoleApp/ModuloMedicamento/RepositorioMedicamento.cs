@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloMedicamento
 {
-    internal class RepositorioMedicamento : RepositorioBase
+    public class RepositorioMedicamento : RepositorioBase<Medicamento>
     {
-        public RepositorioMedicamento(ArrayList ListaMedicamento)
+        public RepositorioMedicamento(List<Medicamento> ListaMedicamento)
         {
             listaRegistros = ListaMedicamento;
         }
 
-        public override EntidadeBase BuscarPorId(int id)
+        public override Medicamento BuscarPorId(int id)
         {
-            return (Medicamento)base.BuscarPorId(id);
+            return base.BuscarPorId(id);
         }
     }
 }

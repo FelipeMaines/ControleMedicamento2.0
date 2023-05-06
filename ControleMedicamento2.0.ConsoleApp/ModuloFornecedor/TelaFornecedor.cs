@@ -1,4 +1,5 @@
 ﻿using ControleMedicamento2._0.ConsoleApp.Compartilhado;
+using ControleMedicamento2._0.ConsoleApp.ModuloAquisicao;
 using ControleMedicamento2._0.ConsoleApp.ModuloFuncionario;
 using System;
 using System.Collections;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloFornecedor
 {
-    internal class TelaFornecedor : TelaBase
+    public class TelaFornecedor : TelaBase<Fornecedor, RepositorioFornecedor>
     {
         public TelaFornecedor(RepositorioFornecedor repositorioFornecedor) : base(repositorioFornecedor)
         {
@@ -17,7 +18,7 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloFornecedor
             sufixo = "es";
         }
 
-        public override void MostrarObjetos(ArrayList array)
+        public override void MostrarObjetos(List<Fornecedor> array)
         {
 
             Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -10}", "id", "nome", "medicamento", "telefone", "cidade");
@@ -30,7 +31,14 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloFornecedor
             }
         }
 
-        public override EntidadeBase ObterRegistro()
+        public override void MostrarTabela()
+        {
+            List<Fornecedor> array = repositorioBase.SelecionarTodos();
+
+            MostrarObjetos(array);
+        }
+
+        public override Fornecedor ObterRegistro()
         {
             Console.WriteLine("Qual o nome?");
             string nome = Console.ReadLine();

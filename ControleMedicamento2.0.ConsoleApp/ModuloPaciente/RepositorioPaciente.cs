@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloPaciente
 {
-    internal class RepositorioPaciente : RepositorioBase
+    public class RepositorioPaciente : RepositorioBase<Paciente>
     {
-        public RepositorioPaciente(ArrayList arrayList)
+        public RepositorioPaciente(List<Paciente> arrayList)
         {
             listaRegistros = arrayList;
         }

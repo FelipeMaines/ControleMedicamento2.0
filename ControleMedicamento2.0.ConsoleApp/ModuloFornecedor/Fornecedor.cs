@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloFornecedor
 {
-    internal class Fornecedor : EntidadeBase
+    public class Fornecedor : EntidadeBase
     {
         public Fornecedor(string? nome, string? medicamento, string? cidade, string? telefone)
         {

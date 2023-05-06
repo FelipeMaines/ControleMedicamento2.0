@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloAquisicao
 {
-    internal class TelaAquisicao : TelaBase
+    public class TelaAquisicao : TelaBase<Aquisicao, RepositorioAquisicao>
     {
         public RepositorioFuncionario repositorioFuncionario;
         public RepositorioMedicamento repositorioMedicamento;
@@ -20,8 +20,9 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloAquisicao
         public TelaMedicamento telaMedicamento;
         public RepositorioFornecedor repositorioFornecedor;
         public TelaFornecedor telaFornecedor;
+        public string nomeEntidade;
 
-        public TelaAquisicao(RepositorioBase repositorio, RepositorioMedicamento repositorioMedicamento,
+        public TelaAquisicao(RepositorioAquisicao repositorio, RepositorioMedicamento repositorioMedicamento,
             RepositorioFornecedor repositorioFornecedor, RepositorioFuncionario repositorioFuncionario,
             TelaMedicamento telaMedicamento, TelaFornecedor telaFornecedor, TelaFuncionario telaFuncionario) : base(repositorio)
         {
@@ -35,7 +36,7 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloAquisicao
             nomeEntidade = "Requisições de Entrada";
         }
 
-        public override void MostrarObjetos(ArrayList array)
+        public override void MostrarObjetos(List<Aquisicao> array)
         {
             Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -15} | {4, -15} |", "id", "funcionario", "medicamento", "quantidade Adicionada", "data");
 
@@ -47,7 +48,14 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloAquisicao
             }
         }
 
-        public override EntidadeBase ObterRegistro()
+        public override void MostrarTabela()
+        {
+            List<Aquisicao> array = repositorioBase.SelecionarTodos();
+
+            MostrarObjetos(array);
+        }
+
+        public override Aquisicao ObterRegistro()
         {
             Console.Clear();
 

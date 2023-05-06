@@ -1,18 +1,19 @@
 ﻿using ControleMedicamento2._0.ConsoleApp.Compartilhado;
+using ControleMedicamento2._0.ConsoleApp.ModuloMedicamento;
 using System.Collections;
 
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloPaciente
 {
-    internal class TelaPaciente : TelaBase
+    public class TelaPaciente : TelaBase<Paciente, RepositorioPaciente>
     {
-        public TelaPaciente(RepositorioBase repositorio) : base(repositorio)
+        public TelaPaciente(RepositorioPaciente repositorio) : base(repositorio)
         {
             nomeEntidade = "Paciente";
             sufixo = "s";
         }
 
-        public override void MostrarObjetos(ArrayList array)
+        public override void MostrarObjetos(List<Paciente> array)
         {
             Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -10} | {4, -10} |", "id", "nome", "cpf", "telefone", "sus");
 
@@ -23,8 +24,14 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloPaciente
                 Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -10} | {4, -10} |", paciente.id, paciente.nome, paciente.cpf, paciente.telefone, paciente.sus);
             }
         }
+        public override void MostrarTabela()
+        {
+            List<Paciente> array = repositorioBase.SelecionarTodos();
 
-        public override EntidadeBase ObterRegistro()
+            MostrarObjetos(array);
+        }
+
+        public override Paciente ObterRegistro()
         {
             Console.WriteLine("Qual o nome:");
             string nome = Console.ReadLine();

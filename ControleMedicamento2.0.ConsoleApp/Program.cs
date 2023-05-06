@@ -13,12 +13,12 @@ namespace ControleMedicamento2._0.ConsoleApp
     {
         static void Main(string[] args)
         {
-            RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario(new ArrayList());
-            RepositorioFornecedor repositorioFornecedor = new RepositorioFornecedor(new ArrayList());
-            RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento(new ArrayList());
-            RepositorioPaciente repositorioPaciente = new RepositorioPaciente(new ArrayList());
-            RepositorioAquisicao repositorioAquisicao = new RepositorioAquisicao(new ArrayList());
-            RepositorioRequisicao repositorioRequisicao = new RepositorioRequisicao(new ArrayList());
+            RepositorioFuncionario repositorioFuncionario = new RepositorioFuncionario(new List<Funcionario>());
+            RepositorioFornecedor repositorioFornecedor = new RepositorioFornecedor(new List<Fornecedor>());
+            RepositorioMedicamento repositorioMedicamento = new RepositorioMedicamento(new List<Medicamento>());
+            RepositorioPaciente repositorioPaciente = new RepositorioPaciente(new List<Paciente>());
+            RepositorioAquisicao repositorioAquisicao = new RepositorioAquisicao(new List<Aquisicao>());
+            RepositorioRequisicao repositorioRequisicao = new RepositorioRequisicao(new List<Requisicao>());
 
             TelaFuncionario telaFuncionario = new TelaFuncionario(repositorioFuncionario);
             TelaFornecedor telaFornecedor = new TelaFornecedor(repositorioFornecedor);

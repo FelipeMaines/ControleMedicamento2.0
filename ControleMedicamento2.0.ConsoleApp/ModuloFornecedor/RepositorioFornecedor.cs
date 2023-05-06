@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloFornecedor
 {
-    internal class RepositorioFornecedor : RepositorioBase
+    public class RepositorioFornecedor : RepositorioBase<Fornecedor>
     {
-        public RepositorioFornecedor(ArrayList arrayList)
+        public RepositorioFornecedor(List<Fornecedor> arrayList)
         {
             this.listaRegistros = arrayList;
         }
 
-        public override EntidadeBase BuscarPorId(int id)
+        public override Fornecedor BuscarPorId(int id)
         {
-            return (Fornecedor)base.BuscarPorId(id);
+            return base.BuscarPorId(id);
         }
     }
 }

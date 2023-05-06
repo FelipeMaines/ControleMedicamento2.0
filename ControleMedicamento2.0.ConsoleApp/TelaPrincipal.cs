@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp
 {
-    internal class TelaPrincipal
+    public class TelaPrincipal
     {
         public string ApresentarMenu()
         {

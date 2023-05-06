@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloFuncionario
 {
-    internal class Funcionario : EntidadeBase
+    public class Funcionario : EntidadeBase
     {
         public string nome { get ; set; }
         public string cpf { get; set; }

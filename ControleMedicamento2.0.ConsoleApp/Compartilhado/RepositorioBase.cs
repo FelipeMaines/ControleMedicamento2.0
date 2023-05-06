@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp
 {
-    internal class RepositorioBase
+    public class RepositorioBase<T> where T : EntidadeBase
     {
-        protected ArrayList listaRegistros;
+        protected List<T> listaRegistros;
         protected int contadorId = 0;
 
-        public virtual void Inserir(EntidadeBase entidade)
+        public virtual void Inserir(T entidade)
         {
             contadorId++;
 
@@ -21,16 +21,16 @@ namespace ControleMedicamento2._0.ConsoleApp
             listaRegistros.Add(entidade);
         }
 
-        public virtual ArrayList SelecionarTodos()
+        public virtual List<T> SelecionarTodos()
         {
             return listaRegistros;
         }
 
-        public virtual EntidadeBase BuscarPorId(int id)
+        public virtual T BuscarPorId(int id)
         {
-            EntidadeBase entidade = null;
+            T entidade = null;
 
-            foreach ( EntidadeBase a in listaRegistros)
+            foreach ( T a in listaRegistros)
             {
                 if(a.id == id)
                     entidade = a;
@@ -39,16 +39,16 @@ namespace ControleMedicamento2._0.ConsoleApp
             return entidade;
         }
 
-        public virtual void Editar(EntidadeBase entidadeAtualizada, int id)
+        public virtual void Editar(T entidadeAtualizada, int id)
         {
-            EntidadeBase entidadeSelecionada = BuscarPorId(id);
+            T entidadeSelecionada = BuscarPorId(id);
 
             entidadeSelecionada.AtualizarInformacoes(entidadeAtualizada);
         }
 
         public virtual void Excluir(int id)
         {
-            EntidadeBase entidade = BuscarPorId(id);
+            T entidade = BuscarPorId(id);
 
             listaRegistros.Remove(entidade);
 

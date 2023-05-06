@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp
 {
-    internal abstract class TelaBase
+    public abstract class TelaBase<T, TRepositorio> where T : EntidadeBase where TRepositorio : RepositorioBase<T>
     {
-        protected RepositorioBase repositorioBase = null;
+        protected TRepositorio repositorioBase = null;
         public string nomeEntidade = "";
         public string sufixo = "";
 
-        public TelaBase(RepositorioBase repositorio)
+        public TelaBase(TRepositorio repositorio)
         {
             repositorioBase = repositorio;
         }
 
-        public abstract EntidadeBase ObterRegistro();
+        public abstract T ObterRegistro();
 
         public virtual void CriarInserirEntidade()
         {
             Console.WriteLine("Criando entidade...");
 
-            EntidadeBase entidade = ObterRegistro();
+            T entidade = ObterRegistro();
 
             if(VerificarErros(entidade))
             {
@@ -44,11 +44,11 @@ namespace ControleMedicamento2._0.ConsoleApp
             Console.Clear();
         }
 
-        public abstract void MostrarObjetos(ArrayList array);
+        public abstract void MostrarObjetos(List<T> array);
 
         public virtual void MostrarTabela()
         {
-            ArrayList array = repositorioBase.SelecionarTodos();
+            List<T> array = repositorioBase.SelecionarTodos();
 
             MostrarObjetos(array);
         }
@@ -67,7 +67,7 @@ namespace ControleMedicamento2._0.ConsoleApp
             Console.WriteLine("Qual o id da Entidade que deseja editar: ");
             int id = int.Parse(Console.ReadLine());
 
-            EntidadeBase entidateAtualizada = ObterRegistro();
+            T entidateAtualizada = ObterRegistro();
 
             repositorioBase.Editar(entidateAtualizada, id);
 
@@ -112,7 +112,7 @@ namespace ControleMedicamento2._0.ConsoleApp
             return opcao;
         }
 
-        protected bool VerificarErros(EntidadeBase entidade)
+        protected bool VerificarErros(T entidade)
         {
             bool erro = false;
 

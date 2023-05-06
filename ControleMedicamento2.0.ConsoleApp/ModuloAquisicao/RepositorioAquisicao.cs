@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloAquisicao
 {
-    internal class RepositorioAquisicao : RepositorioBase
+    public class RepositorioAquisicao : RepositorioBase<Aquisicao>
     {
-        public RepositorioAquisicao(ArrayList listaAquisicao)
+        public RepositorioAquisicao(List<Aquisicao> listaAquisicao)
         {
             listaRegistros = listaAquisicao;
         }

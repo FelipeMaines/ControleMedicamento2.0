@@ -10,18 +10,18 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloMedicamento
 {
-    internal class TelaMedicamento : TelaBase
+    public class TelaMedicamento : TelaBase<Medicamento, RepositorioMedicamento>
     {
         public TelaFornecedor telaFornecedor;
         public RepositorioFornecedor repositorioFornecedor;
-        public string[] camposRemedio = { "id", "nome", "descricao", "quantidade", "quantidadeMinima" };
-        public TelaMedicamento(RepositorioBase repositorio, RepositorioBase repositorioFornecedor, TelaFornecedor telaFornecedor) : base(repositorio)
+
+        public TelaMedicamento(RepositorioMedicamento repositorio, RepositorioFornecedor repositorioFornecedor, TelaFornecedor telaFornecedor) : base(repositorio)
         {
-            this.repositorioFornecedor = (RepositorioFornecedor)repositorioFornecedor;
+            this.repositorioFornecedor = repositorioFornecedor;
             this.telaFornecedor = telaFornecedor;
             this.nomeEntidade = "Medicamento";
             sufixo = "s";
-    }
+        }
 
         public override string ApresentarMenu()
         {
@@ -43,7 +43,15 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloMedicamento
             return opcao;
         }
 
-        public override void MostrarObjetos(ArrayList array)
+        public override void MostrarTabela()
+        {
+            List<Medicamento> array = repositorioBase.SelecionarTodos();
+
+            MostrarObjetos(array);
+        }
+
+
+        public override void MostrarObjetos(List<Medicamento> array)
         {
             Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -10} | {4, -10} | {5, -10} |", "id", "nome", "descricao", "Qtd Estoque", "Qtd Min", "Fornecedor");
 
@@ -55,7 +63,7 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloMedicamento
             }
         }
 
-        public override EntidadeBase ObterRegistro()
+        public override Medicamento ObterRegistro()
         {
             Console.Clear();
 

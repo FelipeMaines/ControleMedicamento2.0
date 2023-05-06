@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloFuncionario
 {
-    internal class RepositorioFuncionario : RepositorioBase
+    public class RepositorioFuncionario : RepositorioBase<Funcionario>
     {
-        public RepositorioFuncionario(ArrayList listaFuncionario)
+        public RepositorioFuncionario(List<Funcionario> listaFuncionario)
         {
             this.listaRegistros = listaFuncionario;
         }

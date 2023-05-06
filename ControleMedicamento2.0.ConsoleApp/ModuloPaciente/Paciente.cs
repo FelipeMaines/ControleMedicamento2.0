@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloPaciente
 {
-    internal class Paciente : EntidadeBase
+    public class Paciente : EntidadeBase
     {
         public string nome { get; set; }
         public string sus { get; set; }

@@ -12,7 +12,7 @@ using System.Xml;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloAquisicao
 {
-    internal class Aquisicao : EntidadeBase
+    public class Aquisicao : EntidadeBase
     {
         public Fornecedor fornecedor;
         public Medicamento medicamento;

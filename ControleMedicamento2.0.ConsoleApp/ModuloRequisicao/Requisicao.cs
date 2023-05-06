@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloRequisicao
 {
-    internal class Requisicao : EntidadeBase
+    public class Requisicao : EntidadeBase
     {
         public Paciente paciente { get; set; }
         public Medicamento medicamento { get; set; }

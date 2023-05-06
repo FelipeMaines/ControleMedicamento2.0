@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloRequisicao
 {
-    internal class TelaRequisicao : TelaBase
+    public class TelaRequisicao : TelaBase<Requisicao, RepositorioRequisicao>
     {
         private RepositorioPaciente repositorioPaciente;
         private TelaPaciente telaPaciente;
@@ -16,8 +16,9 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloRequisicao
         private TelaFuncionario telaFuncionario;
         private RepositorioMedicamento repositorioMedicamento;
         private TelaMedicamento telaMedicamento;
+        public string nomeEntidade;
 
-        public TelaRequisicao(RepositorioBase repositorio, RepositorioMedicamento repositorioMedicamento,
+        public TelaRequisicao(RepositorioRequisicao repositorio, RepositorioMedicamento repositorioMedicamento,
             RepositorioFuncionario repositorioFuncionario, RepositorioPaciente repositorioPaciente, 
             TelaMedicamento telaMedicamento, TelaPaciente telaPaciente, TelaFuncionario telaFuncionario) : base(repositorio)
         {
@@ -31,7 +32,7 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloRequisicao
             this.telaMedicamento = telaMedicamento;
         }
 
-        public override void MostrarObjetos(ArrayList array)
+        public override void MostrarObjetos(List<Requisicao> array)
         {
             Console.WriteLine("{0, -10} | {1, -10} | {2, -10} | {3, -10} | {4, -10} | {5, -10} |", "id", "paciente", "medicamento", "Qtd Retirada", "Data", "Funcionario");
 
@@ -43,7 +44,14 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloRequisicao
             }
         }
 
-        public override EntidadeBase ObterRegistro()
+        public override void MostrarTabela()
+        {
+            List<Requisicao> array = repositorioBase.SelecionarTodos();
+
+            MostrarObjetos(array);
+        }
+
+        public override Requisicao ObterRegistro()
         {
             Console.Clear();
 
@@ -63,7 +71,7 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloRequisicao
 
             Console.Clear();
 
-            telaPaciente.MostrarTabela();
+            telaPaciente. MostrarTabela();
             Console.WriteLine("Qual o id do paciente que deseja fazer a requisicao: ");
             int idPaciente = int.Parse(Console.ReadLine());
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.ModuloFuncionario
 {
-    internal class TelaFuncionario : TelaBase
+    public class TelaFuncionario : TelaBase<Funcionario, RepositorioFuncionario>
     {
         public TelaFuncionario(RepositorioFuncionario repositorioFuncionario) : base(repositorioFuncionario)
         {
@@ -17,7 +17,7 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloFuncionario
             sufixo = "s";
         }
 
-        public override void MostrarObjetos(ArrayList array)
+        public override void MostrarObjetos(List<Funcionario> array)
         {
             Console.WriteLine("{0, -10} | {1, -10} | {2, -10} |", "id", "nome", "cpf");
 
@@ -29,7 +29,14 @@ namespace ControleMedicamento2._0.ConsoleApp.ModuloFuncionario
             }
         }
 
-        public override EntidadeBase ObterRegistro()
+        public override void MostrarTabela()
+        {
+            List<Funcionario> array = repositorioBase.SelecionarTodos();
+
+            MostrarObjetos(array);
+        }
+
+        public override Funcionario ObterRegistro()
         {
             Console.WriteLine("Qual o nome:");
             string nome = Console.ReadLine();

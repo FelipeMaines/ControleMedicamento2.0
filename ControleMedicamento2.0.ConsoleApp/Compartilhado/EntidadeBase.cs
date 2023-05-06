@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ControleMedicamento2._0.ConsoleApp.Compartilhado
 {
-    internal abstract class EntidadeBase
+    public abstract class EntidadeBase
     {
         public int id { get; set; }
 
